@@ -6,7 +6,7 @@ var app = express()
 const port = process.env.PORT||3000
 
 app.get("/index",(req,res)=>{
-    res.send("<h5> Merhaba hangi sehirin bilgisini ogrenmek istiyorsanız giriniz .. </h5>")
+    res.send("<h5> Hangi sehirin bilgisini ogrenmek istiyorsanız giriniz .. </h5>")
 })
 
 

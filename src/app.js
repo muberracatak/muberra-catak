@@ -1,15 +1,14 @@
+var app = express()
 const express = require("express")
 const geocode = require("./test_geocode")
 const forecast = require("./test_forecast")
-var app = express()
+
 
 const port = process.env.PORT||3000
 
 app.get("/index",(req,res)=>{
     res.send("<h5> Hangi sehirin bilgisini ogrenmek istiyorsanız giriniz .. </h5>")
 })
-
-
 app.get("/weather",(req,res)=>{
     
     geocode.test_geocode(req.params.sehir, (error,data)=>{

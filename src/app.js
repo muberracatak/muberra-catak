@@ -38,6 +38,6 @@ app.get("/weather",(req,res)=>{
 
 
 app.listen(port, ()=> {
-    console.log("Server is running on 3000 port");
+    console.log(`Sunucu  ${port} numaralı portta çalışmaktadır"`);
 })
 

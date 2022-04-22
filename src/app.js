@@ -5,28 +5,28 @@ var app = express()
 
 const port = process.env.PORT||3000
 
-app.get("/",(req,res)=>{
-    res.send("<p> Merhaba hangi sehirin bilgisini ogrenmek istiyorsanız giriniz .. </p>")
+app.get("/index",(req,res)=>{
+    res.send("<h5> Merhaba hangi sehirin bilgisini ogrenmek istiyorsanız giriniz .. </h5>")
 })
 
 
-app.get("/havadurumu/:sehir",(req,res)=>{
+app.get("/weather",(req,res)=>{
     
     geocode.test_geocode(req.params.sehir, (error,data)=>{
         
         if(error){
             return res.send(error)
         }else{
-            const enlem = data.features[0].center[1]
-            const boylam = data.features[0].center[0]
-            return forecast.test_forecast(enlem,boylam,(error,data)=>{
+            const latitude = data.features[0].center[1]
+            const longitude = data.features[0].center[0]
+            return forecast.test_forecast(latitude,longitude,(error,data)=>{
                 if(error){
                     return res.send(error)
                 }else{
                     const konum = data.location.region
-                    const sicaklik = data.current.temperature
+                    const temp = data.current.temperature
                     
-                    return res.send({konum,sicaklik})
+                    return res.send({konum,temp})
                    
                 }
             })

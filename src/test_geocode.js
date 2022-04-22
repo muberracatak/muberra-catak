@@ -10,11 +10,7 @@ const test_geocode = (address, callback) => {
             callback(undefined,response.body)
     })  
 }
-console.log(encodeURIComponent("weather appp"));   
 
 module.exports = {
     test_geocode : test_geocode
 }
-
-
-

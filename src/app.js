@@ -22,16 +22,14 @@ app.get("/weather",(req,res)=>{
                 if(error){
                     return res.send(error)
                 }else{
-                    const konum = data.location.region
+                    const loc = data.location.region
                     const temp = data.current.temperature
                     
-                    return res.send({konum,temp})
+                    return res.send({loc,temp})
                    
                 }
             })
-         
         }
-
     })
 })
 
@@ -39,4 +37,3 @@ app.get("/weather",(req,res)=>{
 app.listen(port, ()=> {
     console.log(`Sunucu  ${port} numaralı portta çalışmaktadır"`);
 })
-
